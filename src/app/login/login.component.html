@@ -1,0 +1,38 @@
+<div class="card centered">
+  <mat-card>
+    <img src="assets/logos/hbor-square.png">
+    <mat-card-header>
+      <mat-card-title>Prijava</mat-card-title>
+      <mat-card-subtitle>Prijavite se da bi ste mogli koristiti aplikaciju</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+        <mat-step [stepControl]="emailFormGroup">
+          <form [formGroup]="emailFormGroup">
+            <ng-template matStepLabel>Unesite email adresu</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Email adresa" formControlName="email" required>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="primary" matStepperNext>Dalje</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="passwordFormGroup">
+          <form [formGroup]="passwordFormGroup">
+            <ng-template matStepLabel>Unesite zaporku</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Zaporka" formControlName="password" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Nazad</button>
+              <button mat-raised-button type="button" color="primary" (click)="submit()">Podnesi</button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>

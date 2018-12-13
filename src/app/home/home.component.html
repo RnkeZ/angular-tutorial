@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Automatizacija I-Rad obrazaca</span>
+    <span class="spacer"></span>
+    <span *ngIf="employee">
+      <span *ngIf="employee.person.gender.abbreviation === 'M'">
+        Dobrodošli don {{employee.person.firstname}} {{employee.person.lastname}}
+      </span>
+      <span *ngIf="employee.person.gender.abbreviation === 'Ž'">
+        Dobrodošli gđa {{employee.person.firstname}} {{employee.person.lastname}}
+      </span>
+    </span>
+    <mat-icon class="icon">verified_user</mat-icon>
+    <button type="button" mat-icon-button>
+      <mat-icon matTooltip="Dokumentacija" aria-label="Dokumentacija" (click)=goToDocs()>info_outline
+      </mat-icon>
+    </button>
+    <button type="button" mat-icon-button>
+      <mat-icon matTooltip="Aplikacija" aria-label="Aplikacija" (click)=goToApp()>exit_to_app
+      </mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<iframe *ngIf="showDocs" style="border:none; width: 100%; height: calc(100vh - 64px);" src="assets/documentation/index.html">
+</iframe>
+<div *ngIf="!showDocs" style="padding: 20px;">
+  <app-i-rad></app-i-rad>
+</div>

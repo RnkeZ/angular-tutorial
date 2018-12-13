@@ -1,0 +1,11 @@
+<mat-card *ngIf="types">
+  <mat-card-content>
+    <section>
+      <div *ngFor="let type of types">
+        <mat-checkbox [(ngModel)]="type.checked" (change)="emitValues(type)" align="start" [disabled]="disabled">
+          {{type.description}}
+        </mat-checkbox>
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<form [formGroup]="iRadForm" novalidate (submit)="save(iRadForm.value, iRadForm.valid)">
+  <div mat-dialog-content>
+    <div>
+      <app-datum #absencedatestart [disabled]="disabled" [dateFormControl]="iRadForm.controls.absencedatestart" [placeholder]="'Datum izostanka od'"></app-datum>
+      <app-datum #absencedateend [disabled]="disabled" [dateFormControl]="iRadForm.controls.absencedateend" [placeholder]="'Datum izostanka do'"></app-datum>
+    </div>
+    <div>
+      <app-tipovi-izostanka [disabled]="disabled" [inputTypeOfAbsences]="row.typeOfAbsences" (checkedValues)="setCheckedValues($event)"></app-tipovi-izostanka>
+    </div>
+    <div style="padding-top: 20px;">
+      <mat-form-field>
+        <input matInput formControlName="reason" placeholder="Razlog">
+      </mat-form-field>
+    </div>
+    <div formArrayName="workingTimes">
+      <h3 mat-dialog-title>Trajanje radnog vremena:</h3>
+      <div *ngFor="let workingTime of workingTimesData.controls; let i = index;">
+        <div [formGroupName]="i">
+          <app-datum [disabled]="disabled" [dateFormControl]="workingTime.controls.date" [placeholder]="'Datum izostanka od'"></app-datum>
+          <mat-form-field>
+            <input type="time" matInput formControlName="starttime" placeholder="Vijeme izostanka od">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="time" matInput formControlName="endtime" placeholder="Vijeme izostanka do">
+          </mat-form-field>
+          <button [disabled]="disabled" mat-button matSuffix mat-icon-button aria-label="Ukloni" (click)="removeItem(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div style="padding-bottom: 15px;">
+        <button [disabled]="disabled" color="primary" mat-raised-button (click)="addItem()">Dodaj novo vrijeme</button>
+      </div>
+    </div>
+    <div>
+      <app-datum #dateofcreation [disabled]="disabled" [dateFormControl]="iRadForm.controls.dateofcreation" [placeholder]="'Datum kreiranja'"></app-datum>
+    </div>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="warn">Odustani</button>
+    <section [hidden]="disabled">
+      <button mat-button id="submit" type="submit" color="primary" cdkFocusInitial>Spremi</button>
+    </section>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+<ng-template #templateLeft let-row="row" let-value="value" let-i="index">
+  <div style="text-align: left; padding-left: 3px;">
+    {{value}}
+  </div>
+</ng-template>
+<ng-template #templateRight let-row="row" let-value="value" let-i="index">
+  <div style="text-align: right; padding-right: 3px;">
+    {{value}}
+  </div>
+</ng-template>
+<ng-template #templateImage let-row="row" let-value="value" let-i="index">
+  <div>
+    <mat-icon svgIcon="{{value}}"></mat-icon>
+  </div>
+</ng-template>
+<ng-template #templateDate let-row="row" let-value="value" let-i="index">
+  <div style="text-align: center; padding-right: 3px;">
+    {{ value | date:'dd. MM. yyyy.'}}
+  </div>
+</ng-template>
+<ng-template #templatePercent let-row="row" let-value="value" let-i="index">
+  <div style="text-align: right; padding-right: 3px;">
+    {{value | percent:'1.2-2'}}
+  </div>
+</ng-template>

@@ -1,0 +1,33 @@
+<app-templates></app-templates>
+<div class="flex-toolbar" style="padding-bottom: 20px">
+  <div style="padding: 10px;">
+    <button color="primary" mat-raised-button (click)="createIRad()">Novi</button>
+  </div>
+  <div style="padding: 10px;">
+    <button color="primary" mat-raised-button (click)="editIRad()">Izmjena</button>
+  </div>
+  <div style="padding: 10px;">
+    <button color="primary" mat-raised-button (click)="viewIRad()">Pregled</button>
+  </div>
+  <span class="spacer"></span>
+  <div style="padding: 10px;">
+    <button color="primary" mat-raised-button (click)="deleteIRad()">Brisanje</button>
+  </div>
+</div>
+<div *ngIf="dataLoaded">
+  <mat-form-field style="min-width: 400px">
+    <input matInput [placeholder]="searchPlaceholder" (input)='updateFilter($event)'>
+    <button *ngIf="inputTekst" mat-button matSuffix mat-icon-button aria-label="Očisti" (click)="inputTekst=''; updateFilter($event, true);">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button [disabled]="true" style="width: 24px; height: 24px;" mat-button matSuffix mat-icon-button>
+      <mat-icon style="width: 24px; height: 24px; line-height: 24px; font-size: 24px; color: #7d7d7d">search</mat-icon>
+    </button>
+  </mat-form-field>
+  <div>
+    <ngx-datatable #table class="material striped" [loadingIndicator]="false" [columns]="columns" [columnMode]="columnMode" [headerHeight]="headerHeight"
+      [footerHeight]="50" [rowHeight]="rowHeight" [limit]="limit" [scrollbarH]="scrollbarH" [rows]='rows' [scrollbarV]="scrollbarV"
+      [selectionType]="'single'" (select)='onSelect($event)' (page)="onPage($event)" [messages]="{emptyMessage: 'Nema podataka',  totalMessage: 'Ukupno'}">
+    </ngx-datatable>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+@import '~@angular/material/theming';
+// ikone
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+// font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+// tablica
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$hbor-primary: mat-palette($mat-blue-grey);
+$hbor-accent: mat-palette($mat-blue-grey, 600);
+$hbor-warn: mat-palette($mat-red);
+$mat-light-theme-background: ( status-bar: map_get($mat-grey, 300), app-bar: map_get($mat-grey, 100), background: map_get($mat-grey, 200), hover: rgba(black, 0.04), card: map_get($mat-grey, 200), dialog: map_get($mat-grey, 200), disabled-button: $black-12-opacity, raised-button: white, focused-button: $black-6-opacity, selected-button: map_get($mat-grey, 300), selected-disabled-button: map_get($mat-grey, 400), disabled-button-toggle: map_get($mat-grey, 200), unselected-chip: map_get($mat-grey, 300), disabled-list-option: map_get($mat-grey, 200), );
+// Create the theme object (a Sass map containing all of the palettes).
+$hbor-theme: mat-light-theme($hbor-primary, $hbor-accent, $hbor-warn);
+@include angular-material-theme($hbor-theme);
+//Typography config
+// Line-height must be unit-less fraction of the font-size.
+$hbor-typography: mat-typography-config( $font-family: 'Roboto, "Helvetica Neue", sans-serif', $display-4: mat-typography-level(112px, 112px, 300), $display-3: mat-typography-level(56px, 56px, 400), $display-2: mat-typography-level(45px, 48px, 400), $display-1: mat-typography-level(34px, 40px, 400), $headline: mat-typography-level(22px, 28px, 400), $title: mat-typography-level(18px, 26px, 500), $subheading-2: mat-typography-level(14px, 28px, 400), $subheading-1: mat-typography-level(12px, 18px, 400), $body-2: mat-typography-level(14px, 24px, 500), $body-1: mat-typography-level(14px, 20px, 400), $caption: mat-typography-level(12px, 20px, 400), $button: mat-typography-level(14px, 14px, 500), $input: mat-typography-level(14px, 1.125, 400));
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($hbor-typography);
+// Override typography for a specific Angular Material components.
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($hbor-typography);
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+    cursor: pointer;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active {
+    background-color: aliceblue !important;
+    color: #ffffff !important;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+    cursor: pointer;
+}
+
+.datatable-body-row.active:hover .datatable-row-group {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover {
+    background-color: #90afc5;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: #739ebc;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear
+}
